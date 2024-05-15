@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжный бункер</title>
+
+    <script src="scripts/db.js"></script>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="media/logo-dark.svg" alt="logo"></a>
+            <ul class="links">
+                <li><a href="index.html" class="link-effect">Главная</a></li>
+                <li><a href="catalog.html" class="link-effect">Каталог</a></li>
+                <li><a href="about.html" class="link-effect">О нас</a></li>
+            </ul>
+            <a href="cart.html" class="cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #ece6cd;">
+                    <path
+                        d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6z">
+                    </path>
+                    <circle cx="10.5" cy="19.5" r="1.5"></circle>
+                    <circle cx="17.5" cy="19.5" r="1.5"></circle>
+                </svg>
+                <span class="not" style="display: none;"></span>
+            </a>
+        </nav>
+        <div class="cart-section">
+
+            <div class="book-grid">
+                <div class="book">
+                    <a href="item.html?id=1" style="grid-area: cover;">
+                        <img src="https://s1.livelib.ru/boocover/1002916527/o/a0bc/Dzhordzh_Martin__Igra_prestolov.jpeg"
+                            alt="book" class="book__cover" />
+                    </a>
+                    <p class="cart-book-name" style="grid-area: name;">Игра
+                        престолов
+                    </p>
+                    <p class="cart-book-author" style="grid-area: author;">Джордж Р.Р. Мартин</p>
+                    <p class="cart-price" style="grid-area: price;">1250₽</p>
+                    <label class="cart-count" style="grid-area: count;">
+                        <input type="text" value="1">
+                        <span>шт</span>
+                    </label>
+                </div>
+                <div class="book">
+                    <a href="item.html?id=3" style="grid-area: cover;">
+                        <img src="https://s1.livelib.ru/boocover/1009183819/o/a6e7/Dzhejn_Ostin__Gordost_i_predubezhdenie.jpeg"
+                            alt="book" class="book__cover" />
+                    </a>
+                    <p class="cart-book-name" style="grid-area: name;">Гордость и предубеждение
+                    </p>
+                    <p class="cart-book-author" style="grid-area: author;">Джейн Остин</p>
+                    <p class="cart-price" style="grid-area: price;">670₽</p>
+                    <label class="cart-count" style="grid-area: count;">
+                        <input type="text" value="1">
+                        <span>шт</span>
+                    </label>
+                </div>
+                <div class="book">
+                    <a href="item.html?id=4" style="grid-area: cover;">
+                        <img src="https://s1.livelib.ru/boocover/1002687858/o/231d/Dzh._K._Rouling__Garri_Potter_i_filosofskij_kamen.jpeg"
+                            alt="book" class="book__cover" />
+                    </a>
+                    <p class="cart-book-name" style="grid-area: name;">Гарри Поттер и философский камень
+                    </p>
+                    <p class="cart-book-author" style="grid-area: author;">Дж.К. Роулинг</p>
+                    <p class="cart-price" style="grid-area: price;">890₽</p>
+                    <label class="cart-count" style="grid-area: count;">
+                        <input type="text" value="1">
+                        <span>шт</span>
+                    </label>
+                </div>
+                <div class="book">
+                    <a href="item.html?id=7" style="grid-area: cover;">
+                        <img src="https://s1.livelib.ru/boocover/1009203985/o/c5cc/Margaret_Mitchell__Unesennye_vetrom.jpeg"
+                            alt="book" class="book__cover" />
+                    </a>
+                    <p class="cart-book-name" style="grid-area: name;">Унесенные ветром
+                    </p>
+                    <p class="cart-book-author" style="grid-area: author;">Маргарет Митчелл</p>
+                    <p class="cart-price" style="grid-area: price;">1100₽</p>
+                    <label class="cart-count" style="grid-area: count;">
+                        <input type="text" value="1">
+                        <span>шт</span>
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="right-side">
+                <h3 class="cart-title title">Оплата</h3>
+                <div class="info">
+                    <p class="prev-sum"></p>
+                    <p class="sum"></p>
+                </div>
+                <div class="promo">
+                    <label class="promocode">
+                        <p>Промокод: </p>
+                        <input type="text" class="input" placeholder="СКИДКА10">
+                    </label>
+                    <button class="btn promo-btn" onclick="promocode()">Применить промокод</button>
+                </div>
+                <button class="pay btn" onclick="pay()">Оплатить</button>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <script src="scripts/sweetalert2.all.min.js"></script>
+    <script src="scripts/cart.js"></script>
+</body>
+
+</html>
